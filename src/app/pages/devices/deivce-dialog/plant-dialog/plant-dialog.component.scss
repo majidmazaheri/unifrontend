@@ -1,0 +1,128 @@
+.device-form {
+    .form-field-outer {
+        width: 280px;
+    }
+    .mat-radio-button{
+        margin-right: 12px;
+    }
+}
+
+.mat-horizontal-stepper {
+    direction: rtl;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 185px 185px 185px 185px;
+    grid-gap: 10px;
+    padding: 10px;
+  }
+
+  .test {
+      width: 50%;
+  }
+
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+  }
+  
+  .radio-button {
+    margin: 5px;
+  }
+
+  .plants-wrapper{
+    position:relative; 
+    min-height: 150px;
+}
+.plant-toolbar{
+    background: transparent !important;
+    height: 40px;
+    margin-top: -40px;
+}
+.plant-details{
+    position: relative;
+   .plant-name{
+        font-weight: 400;
+        text-transform: uppercase;
+    }    
+}
+.plant-content{
+    .more-btn{
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 1;
+    }
+    .plant-img{
+        position: relative;
+        text-align: center;
+        .social-icons a{
+            color: #fff;  
+        }
+        img{
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            &.blocked{
+                opacity: 0.5;
+            }
+        }
+        .mat-icon.block-icon{
+            position: absolute;
+            top: -8px;
+            left: -8px;            
+            font-size: 96px;
+            height: 96px;
+            width: 96px;            
+        }
+    }
+    .info-list{
+        position: relative;
+        span{
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            padding-left: 8px;
+        }
+        p{
+            padding: 2px 0;
+            &:first-child{
+                padding-top: 8px;
+            }
+            &:last-child{
+                padding-bottom: 8px;
+            }
+        } 
+        &.blocked{
+            opacity: 0.5;
+        }
+    }    
+}
+.plant-search{
+    width: 0;
+    overflow: hidden;
+    transition: 0.3s;
+    font-size: 14px;
+    .mat-form-field{
+        width: 100% !important;
+        text-align: center !important;
+        height: 36px;        
+    }
+    .mat-form-field-infix{
+        padding: 5px;
+        width: 100px;
+    }
+    .mat-input-element{
+        text-align: center;
+    }
+    &.show{
+        width: 100%;
+        overflow: visible;
+    }
+}
+.plant-spinner{
+    position: absolute;
+    top:0; right: 0; bottom: 0; left:0;
+}

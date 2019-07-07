@@ -1,0 +1,17 @@
+<mat-sidenav-container class="h-100">
+  <div fxLayout="row" fxLayoutAlign="center center" class="h-100">
+       <div fxFlex="80" fxFlex.gt-sm="30" fxFlex.sm="60" class="mat-elevation-z6">
+            <app-content-header 
+                [icon]="'warning'" 
+                [title]="'500'" 
+                [hasBgImage]="true" 
+                [class]="'pt-4 pb-3'"></app-content-header>            
+            <div class="p-4 text-center">
+                <h2 class="py-2">مشکلی در سرور رخ داده است</h2>
+                <p class="pt-2">مشکلی پیش آمده است</p> 
+                <p class="pt-2">شما میتوانید به صفحه وضعیت برگردید</p> 
+                <button mat-raised-button color="primary" class="mat-elevation-z6 mt-3" type="button" (click)="goHome()">صفحه وضعیت</button>
+            </div>
+        </div>
+  </div>
+</mat-sidenav-container>

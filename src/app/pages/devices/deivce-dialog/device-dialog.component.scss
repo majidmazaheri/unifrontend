@@ -1,0 +1,33 @@
+.device-form {
+    .form-field-outer {
+        width: 280px;
+    }
+    .mat-radio-button{
+        margin-right: 12px;
+    }
+}
+
+.mat-horizontal-stepper {
+    direction: rtl;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 185px 185px 185px 185px;
+    grid-gap: 10px;
+    padding: 10px;
+  }
+
+  .test {
+      width: 50%;
+  }
+
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+  }
+  
+  .radio-button {
+    margin: 5px;
+  }

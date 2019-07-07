@@ -1,0 +1,29 @@
+.tile{
+    .mat-icon{
+        // text-align: left;
+        // position: absolute;
+        // left: 4px;
+        // top: 50%;
+        // line-height: 0;
+        font-size: 54px;
+        opacity: 0.3;
+    }
+    h2{
+        font-weight: 500;
+        text-align: right;
+    }
+    p{
+        text-transform: uppercase;
+        text-align: right;
+    }
+}
+
+.mat-chip.info-chip{
+    padding: 4px 8px;
+    .mat-icon{
+        margin-right: 4px;
+    }
+}
+.h-100p{
+    height: 100px;
+}

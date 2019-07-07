@@ -1,0 +1,107 @@
+<h1 mat-dialog-title><span *ngIf="!this.device.d_id">اضافه کردن دستگاه جدید</span><span *ngIf="this.device.d_id">ویرایش
+        دستگاه</span>{{this.device.d_name}}</h1>
+<div *ngIf="!this.device.id">
+    <div mat-dialog-content>
+        <mat-horizontal-stepper [linear]="true" #stepper class="mat-horizontal-stepper">
+            <mat-step [stepControl]="security">
+                <form [formGroup]="security">
+                    <div class="grid-container">
+                        <ng-template matStepLabel>تایید اعتبار</ng-template>
+                        <div>
+                            <mat-form-field>
+                                <input matInput placeholder="شناسه دستگاه خود را وارد کنید" formControlName="d_id"
+                                    required>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field>
+                                <input matInput placeholder="رمز عبور دستگاه خود را وارد کنید"
+                                    formControlName="password" required>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <button mat-raised-button color="primary" matStepperNext>مرحله بعد</button>
+                        </div>
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step [stepControl]="info">
+                <form [formGroup]="info">
+                    <div class="grid-container">
+                        <ng-template matStepLabel>تنظیم دستگاه</ng-template>
+                        <div>
+                            <mat-form-field>
+                                <input matInput placeholder="نام دستگاه" formControlName="d_name" required>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field>
+                                <input matInput placeholder="نام گیاه" formControlName="p_name" required>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <hr>
+                    <h2>شما میتوانید دستگاه خود را به صورت دستی تنظیم کنید یا در غیر اینصورت گیاه مورد نظر خود را انتخاب
+                        کنید</h2>
+                    <button mat-raised-button color="primary" (click)="Dialog()">انتخاب گیاه</button>
+                    <div class="grid-container">
+                        <div>
+                            <mat-form-field>
+                                <input matInput placeholder="رطوبت خاک مورد نیاز" formControlName="e_s_moisture"
+                                    required>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field>
+                                <input matInput placeholder="نور مورد انتظار" formControlName="e_light" required>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field>
+                                <input matInput placeholder="رطوبت هوا مورد انتظار" formControlName="e_a_moisture"
+                                    required>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field>
+                                <input matInput placeholder="دما مورد انتظار" formControlName="e_temp" required>
+                            </mat-form-field>
+                            <!-- <div *ngIf="info.errors.min">
+                                Name must be at least 4 characters long.
+                            </div> -->
+                        </div>
+                        <div>
+                            <label id="example-radio-group-label">نوع آبیاری</label>
+                            <mat-radio-group aria-labelledby="radio-group-label" class="radio-group"
+                                formControlName="watering_mode">
+                                <mat-radio-button class="radio-button" value="0">
+                                    آبیاری با پمپ
+                                </mat-radio-button>
+                                <mat-radio-button class="radio-button" value="1">
+                                    آبیاری با شیر آب شهری
+                                </mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                    </div>
+                </form>
+                <div>
+                    <button mat-raised-button color="primary" matStepperPrevious>مرحله قبل</button>
+                    <button mat-raised-button color="primary" (click)="confirm(this.security.value, this.info.value)">تکمیل</button>
+                </div>
+            </mat-step>
+            <!-- <mat-step>
+                <ng-template matStepLabel>تکمیل</ng-template>
+                مراحل تکمیل شد
+                <div>
+                    <button mat-raised-button color="primary" matStepperPrevious>مرحله قبل</button>
+                    <button mat-raised-button color="primary" (click)="stepper.reset()">راه اندازی مجدد</button>
+                    <button mat-raised-button color="primary" (click)="submit()">ثبت</button>
+                </div>
+            </mat-step> -->
+        </mat-horizontal-stepper>
+        <!-- </form> -->
+    </div>
+    <div mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between center">
+        <button mat-raised-button color="warn" (click)="close()">لغو</button>
+    </div>
+</div>

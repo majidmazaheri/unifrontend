@@ -1,0 +1,8 @@
+<app-content-header icon="dashboard" desc="به پنل کاربری خود خوش آمدید" [hasBgImage]="true"
+    [class]="'py-3'"></app-content-header>
+
+<div class="p-2" *ngFor="let device of details" style="padding-top: 10px !important;padding-bottom: 0px !important;">
+    <hr size="3" color="gradient-green">
+    <app-device-model [details]="this.device"></app-device-model>
+    <hr size="3" color="gradient-green">
+</div>

@@ -1,0 +1,46 @@
+<app-content-header icon="face" [title]="'پروفایل'" [hasBgImage]="true" [class]="'pb-5'">
+</app-content-header>
+<!-- <app-content-header icon="dashboard" desc="به پنل کاربری خود خوش آمدید" [hasBgImage]="true"
+    [class]="'py-3'"></app-content-header> -->
+
+<div fxLayout="row wrap">
+    <div fxFlex="100" class="p-2">
+        <mat-card class="p-0 user-content">
+            <div fxFlex="20" fxFlex.xs="30" fxLayout="column" fxLayoutAlign="center center" class="gradient-purple"
+                [ngClass]="gradient-purple">
+                <div class="user-img">
+                    <div fxLayout="column" fxLayoutAlign="center center" class="user-block">
+                        <img src="assets/img/natural.jpg" class="transition mb-2">
+                    </div>
+                </div>
+            </div>
+            <div fxFlex="80" fxFlex.xs="70" fxLayout="row wrap" fxLayout.xs="column" class="user-details" fxLayout="row"
+                fxLayoutAlign="space-between center">
+                <div class="w-100">
+                    <div class="container" style="margin: 10px">
+                        <p fxLayout="row" class="p" fxLayoutAlign="start center">
+                            <mat-icon color="primary">account_circle</mat-icon>
+                            <span>نام:</span>
+                            <span>{{ details?.name }}</span>
+                        </p>
+                        <p fxLayout="row" class="p" fxLayoutAlign="start center">
+                            <mat-icon color="primary">mail_outline</mat-icon>
+                            <span>ایمیل:</span>
+                            <span>{{ details?.email }}</span>
+                        </p>
+                        <p fxLayout="row" class="p" fxLayoutAlign="start center">
+                            <mat-icon color="primary">call</mat-icon>
+                            <span>تلفن:</span>
+                            <span>{{ details?.phone }}</span>
+                        </p>
+                    </div>
+                    <button mat-raised-button color="primary" (click)="openUserDialog()" style="margin: 10px">
+                        <span>ویرایش</span>
+                        <mat-icon>mode_edit</mat-icon>
+                    </button>
+                    <mat-divider></mat-divider>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+</div>

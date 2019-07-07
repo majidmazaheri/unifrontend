@@ -1,0 +1,92 @@
+<!-- <div class="p-2" *ngFor="let details of details" style="padding-top: 10px !important;padding-bottom: 0px !important;"> -->
+<div fxLayout="row wrap">
+    <div fxFlex="50" fxFlex.xl="50" fxFlex.lg="50" fxFlex.md="99.9" fxFlex.sm="99.9" class="p-2">
+        <mat-card class="gradient-orange tile p-2">
+            <h2>نام دستگاه:{{ details?.d_name}}</h2>
+        </mat-card>
+    </div>
+    <div fxFlex="50" fxFlex.xl="50" fxFlex.lg="50" fxFlex.md="99.9" fxFlex.sm="99.9" class="p-2">
+        <mat-card class="gradient-green tile p-2">
+            <h2>نام گیاه:{{ details?.p_name}}</h2>
+        </mat-card>
+    </div>
+</div>
+<div fxLayout="row wrap" #resizedDiv>
+    <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-2">
+        <mat-card class="p-0 gradient-purple">
+            <div class="py-2 px-3" fxLayoutAlign="space-between center">
+                <p>میزان رطوبت خاک</p>
+                <div fxLayoutAlign="center center">
+                    <mat-icon *ngIf="details?.s_moisture > details?.e_s_moisture" class="icon-sm mx-1">trending_up
+                    </mat-icon>
+                    <mat-icon *ngIf="details?.s_moisture < details?.e_s_moisture" class="icon-sm mx-1">trending_down
+                    </mat-icon> <span>{{ details?.s_moisture}}%</span>
+                </div>
+            </div>
+            <div class="py-2 px-3" fxLayoutAlign="space-between center">
+                <p>میزان رطوبت خاک مورد نیاز</p>
+                <div fxLayoutAlign="center center">
+                    <span>{{ details?.e_s_moisture}}%</span>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+    <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-2">
+        <mat-card class="p-0 gradient-teal">
+            <div class="py-2 px-3" fxLayoutAlign="space-between center">
+                <p>میزان نور</p>
+                <div fxLayoutAlign="center center">
+                    <mat-icon *ngIf="details?.light > details?.e_light" class="icon-sm mx-1">trending_up</mat-icon>
+                    <mat-icon *ngIf="details?.light < details?.e_light" class="icon-sm mx-1">trending_down</mat-icon>
+                    <span>{{ details?.light}}%</span>
+                </div>
+            </div>
+            <div class="py-2 px-3" fxLayoutAlign="space-between center">
+                <p>میزان نور مورد نیاز</p>
+                <div fxLayoutAlign="center center">
+                    <span>{{ details?.e_light}}%</span>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+    <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-2">
+        <mat-card class="p-0 gradient-indigo">
+            <div class="py-2 px-3" fxLayoutAlign="space-between center">
+                <p>میزان رطوبت هوا</p>
+                <div fxLayoutAlign="center center">
+                    <mat-icon *ngIf="details?.a_moisture > details?.e_a_moisture" class="icon-sm mx-1">trending_up
+                    </mat-icon>
+                    <mat-icon *ngIf="details?.a_moisture < details?.e_a_moisture" class="icon-sm mx-1">trending_down
+                    </mat-icon>
+                    <span>{{ details?.a_moisture}}%</span>
+                </div>
+            </div>
+            <div class="py-2 px-3" fxLayoutAlign="space-between center">
+                <p>میزان رطوبت هوا مورد نیاز</p>
+                <div fxLayoutAlign="center center">
+                    <span>{{ details?.e_a_moisture}}%</span>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+    <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-2">
+        <mat-card class="p-0 gradient-amber">
+            <div class="py-2 px-3" fxLayoutAlign="space-between center">
+                <p>میزان دما</p>
+                <div fxLayoutAlign="center center">
+                    <mat-icon *ngIf="details?.temp > details?.e_temp" class="icon-sm mx-1">trending_up
+                    </mat-icon>
+                    <mat-icon *ngIf="details?.temp < details?.e_temp" class="icon-sm mx-1">trending_down
+                    </mat-icon> <span>{{ details?.temp}}%</span>
+                </div>
+            </div>
+            <div class="py-2 px-3" fxLayoutAlign="space-between center">
+                <p>میزان دما مورد نیاز</p>
+                <div fxLayoutAlign="center center">
+                    <span>{{ details?.e_temp}}%</span>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+</div>
+<!-- </div> -->

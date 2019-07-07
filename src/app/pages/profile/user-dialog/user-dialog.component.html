@@ -1,0 +1,80 @@
+<mat-dialog-content class="mat-dialog-content">
+    <h1 mat-dialog-title><span *ngIf="!details.id">Add</span>{{this.details.name}}<span *ngIf="details.id">ویرایش</span>
+    </h1>
+    <div mat-dialog-content>
+        <mat-tab-group class="vertical-tabs">
+            <mat-tab label="ویرایش پروفایل">
+                <form [formGroup]="profileForm" class="user-form" style="padding: 5px">
+                    <div fxLayout="column" class="form-field-outer">
+                        <mat-form-field class="w-100">
+                            <mat-placeholder>
+                                <mat-icon>person</mat-icon> نام
+                            </mat-placeholder>
+                            <input matInput formControlName="name" required>
+                        </mat-form-field>
+                        <mat-form-field class="w-100">
+                            <mat-placeholder>
+                                <mat-icon>email</mat-icon> ایمیل
+                            </mat-placeholder>
+                            <input matInput formControlName="email" required>
+                        </mat-form-field>
+                        <mat-form-field class="w-100">
+                            <mat-placeholder>
+                                <mat-icon>phone</mat-icon> تلفن
+                            </mat-placeholder>
+                            <input matInput formControlName="phone" required>
+                        </mat-form-field>
+                    </div>
+                    <div mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between center">
+                        <button mat-raised-button color="primary" [disabled]="!profileForm.valid"
+                            (click)="profileEdit(this.profileForm.value)"><span *ngIf="details.id">ذخیره</span></button>
+                        <button mat-raised-button color="warn" (click)="close()">لغو</button>
+                    </div>
+                </form>
+            </mat-tab>
+            <mat-tab label="ویرایش رمز عبور">
+                <form [formGroup]="passwordForm" class="user-form" style="padding: 5px">
+                    <div fxLayout="column" class="form-field-outer">
+                        <mat-form-field class="w-100">
+                            <span>:رمز عبور قدیمی</span>
+                            <input matInput formControlName="oldPassword" required>
+                            <mat-error *ngIf="passwordForm.controls['oldPassword'].hasError('required')">
+                                وارد کردن رمز عبور قبلی ضروری است
+                            </mat-error>
+                            <mat-error *ngIf="'oldMismatch'">
+                                رمز وارد شده نباید همانند رمز قبلی باشد
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="w-100">
+                            <span>:رمز عبور جدید</span>
+                            <input matInput formControlName="newPassword" required>
+                            <mat-error *ngIf="passwordForm.controls['newPassword'].hasError('required')">
+                                وارد کردن رمز عبور جدید ضروری است
+                            </mat-error>
+                            <mat-error *ngIf="'match'">
+                                تکرار رمز مطابقت ندارد
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="w-100">
+                            <span>:تکرار رمز عبور جدید</span>
+                            <input matInput formControlName="newPasswordRepeat" required>
+                            <mat-error *ngIf="passwordForm.controls['newPasswordRepeat'].hasError('required')">
+                                تکرار رمز عبور جدید ضروری است
+                            </mat-error>
+                            <mat-error *ngIf="'newMismatch'">
+                                تکرار رمز مطابقت ندارد
+                            </mat-error>
+                        </mat-form-field>
+                        <div mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between center">
+                            <button mat-raised-button color="primary" [mat-dialog-close]="passwordForm.value"
+                                [disabled]="!passwordForm.valid"
+                                (click)="passwordEdit(this.details.id ,this.passwordForm.value.newPassword)"><span
+                                    *ngIf="details.id">ذخیره</span></button>
+                            <button mat-raised-button color="warn" (click)="close()">لغو</button>
+                        </div>
+                    </div>
+                </form>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</mat-dialog-content>

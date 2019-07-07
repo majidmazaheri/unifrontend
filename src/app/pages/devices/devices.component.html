@@ -1,0 +1,21 @@
+<app-content-header [icon]="'devices'" [title]="'مدیریت دستگاه ها'" [hasBgImage]="true"
+    [class]="'pb-4'"></app-content-header>
+<div class="p-2" style="padding-top: 10px !important;padding-bottom: 0px !important;">
+    <button mat-raised-button color="primary" (click)="addDialog(this.deviceAdd)" style="margin-right: 7px">
+        <mat-icon>add</mat-icon>
+        <span>اضافه کردن دستگاه جدید</span>
+    </button>
+</div>
+<div class="p-2" *ngFor="let device of details" style="padding-top: 10px !important;padding-bottom: 0px !important;">
+    <mat-card style="background-color:lightgreen">
+        <app-device-model [details]="this.device"></app-device-model>
+        <button mat-raised-button color="primary" (click)="Dialog(this.device)" style="margin-right: 7px">
+            <span>ویرایش دستگاه</span>
+            <mat-icon>mode_edit</mat-icon>
+        </button>
+        <button mat-raised-button color="warn" (click)=remove(this.device) style="margin-right: 7px">
+            <span>حذف دستگاه</span>
+            <mat-icon>delete</mat-icon>
+        </button>
+    </mat-card>
+</div>
